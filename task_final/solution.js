@@ -33,23 +33,22 @@
 //    }
 // }
 
-function sendRequest(name, phone, address, goods, sum) {
-    let data = {client: {name, phone}, order: {address, sum}, goods: []};
+function sendRequest(name, phone, address, goods, sum) {//тут пока ничего не меняла
+    let data = {client: {order, sum}, order: {}, goods: []};
 
-    data.client = name + phone;
+    data.client = 'name' + 'phone'; // строка, имя клиента + телефон клиента;
+    data.order.address = address;   //строка с адресом доставки, записанным человекопонятным языком (как в примере)
+    data.order.sum = sum; //стоимость заказа с учетом скидок и доставки
 
-    data.order.address = address;
-    data.order.sum = sum;
+    let goods = [{title, count}] //массив объектов с информацией о позициях заказа:
+    let countOfGoods = goods.length;
 
-   // let goods = [{goods.title, goods.count}];// вот тут что-то не так
-    //let countOfGoods = goods.length;
+    for (let i = 0; i <= countOfGoods; i += 1) {
+        data.goods.push(goods[i].title); //title - название позиции
+        data.goods.push(goods[i].count); // count - количество в заказе
+    }
 
-    //for (let i = 0; i <= countOfGoods; i += 1) {
-    //    data.goods.push(goods[i].title);
-    //    data.goods.push(goods[i].count);
-    //}
-
-    let jsonData = JSON.stringify({data});
+    let jsonData = JSON.stringify(data);
 
     return jsonData;
 }

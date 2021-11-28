@@ -48,7 +48,7 @@ function sendRequest(name, phone, address, goods, sum) {//тут пока нич
         data.goods.push(goods[i].count); // count - количество в заказе
     }
 
-    let jsonData = JSON.stringify(data);
+    let jsonData = JSON.stringify({data});
 
     return jsonData;
 }

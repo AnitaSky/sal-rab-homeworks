@@ -34,7 +34,7 @@
 // }
 
 function sendRequest(name, phone, address, goods, sum) {//тут пока ничего не меняла
-    let data = {client: {name, sum}, order: {address, sum}, goods: [{title, count}]};
+    let data = {client: {name, sum}, order: {address, sum}, goods: [title, count]};
 
     data.client = name + phone; // строка, имя клиента + телефон клиента;
     data.order.address = street + ',' + house + ',' + entrance + ',' + floor + ',' + flat;   //строка с адресом доставки, записанным человекопонятным языком (как в примере)

@@ -34,9 +34,9 @@
 // }
 
 function sendRequest(name, phone, address, goods, sum) {//тут пока ничего не меняла
-    let data = {client: {order, sum}, order: {}, goods: []};
+    let data = {client: {order, sum}, order: {address, sum}, goods: []};
 
-    data.client = 'name' + 'phone'; // строка, имя клиента + телефон клиента;
+    data.client = name + phone; // строка, имя клиента + телефон клиента;
     data.order.address = address;   //строка с адресом доставки, записанным человекопонятным языком (как в примере)
     data.order.sum = sum; //стоимость заказа с учетом скидок и доставки
 

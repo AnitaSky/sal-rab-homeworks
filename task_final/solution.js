@@ -42,12 +42,11 @@ function sendRequest(name, phone, address, goods, sum) {
         data.goods.push(goods[i]);
     }
 
-    data.address = address; //адрес доставки
-    data.sum = sum;
+    data.client = client;//убрала имя
+    data.order.address = address;
+    data.order.sum = sum;
 
-    data.client = 'Иван';
-
-    let jsonData = JSON.stringify(data);
+    let jsonData = JSON.stringify({data});
 
     return jsonData;
 }

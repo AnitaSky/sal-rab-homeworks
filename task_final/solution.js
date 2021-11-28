@@ -34,8 +34,8 @@
 // }
 
 function sendRequest(name, phone, address, goods, sum) {
-    let data = {client: [], order: {}, goods: []}; //объявить data
-
+    let data = {client: {name, phone},order: {address, sum}, goods: []}; //объявить data
+    
     let countOfGoods = goods.length; //количество goods
 
     for (let i = 0; i <= countOfGoods; i += 1) {//показать все goods

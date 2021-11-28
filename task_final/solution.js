@@ -34,13 +34,13 @@
 // }
 
 function sendRequest(name, phone, address, goods, sum) {//тут пока ничего не меняла
-    let data = {client: {order, sum}, order: {address, sum}, goods: []};
+    let data = {client: {order, sum}, order: {address, sum}, goods: [{title, count}]};
 
     data.client = name + phone; // строка, имя клиента + телефон клиента;
     data.order.address = street + ',' + house + ',' + entrance + ',' + floor + ',' + flat;   //строка с адресом доставки, записанным человекопонятным языком (как в примере)
     data.order.sum = sum; //стоимость заказа с учетом скидок и доставки
 
-    let goods = [{title, count}] //массив объектов с информацией о позициях заказа:
+    //let goods = [{title, count}] //массив объектов с информацией о позициях заказа:
     let countOfGoods = goods.length;
 
     for (let i = 0; i <= countOfGoods; i += 1) {

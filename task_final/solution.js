@@ -40,7 +40,7 @@ function sendRequest(name, phone, address, goods, sum) {
     let data.order.address = address;
     let data.order.sum = sum;
 
-    let goods = [title, count];
+    //let goods = [title, count];
     let countOfGoods = goods.length;
 
     for (let i = 0; i <= countOfGoods; i += 1) {

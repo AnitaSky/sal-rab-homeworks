@@ -42,9 +42,9 @@ function sendRequest(name, phone, address, goods, sum) {
         data.goods.push(goods[i]);
     }
 
-    data.client = name + phone;//убрала имя
-    data.order.address = address;
-    data.order.sum = sum;
+    let data.client = client;//убрала имя
+    let data.order.address = address;
+    let data.order.sum = sum;
 
     let jsonData = JSON.stringify({data});
 

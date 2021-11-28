@@ -41,7 +41,7 @@ function sendRequest(name, phone, address, goods, sum) {
     data.order.address = address;
     data.order.sum = sum;
 
-    let goods = [{title, count}];// вот тут что-то не так
+    let goods = [{goods.title, goods.count}];// вот тут что-то не так
     let countOfGoods = goods.length;
 
     for (let i = 0; i <= countOfGoods; i += 1) {

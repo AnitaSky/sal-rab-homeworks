@@ -37,5 +37,7 @@ function sendRequest(name, phone, address, goods, sum) {
     const data = { client: {name, phone}, order: { sum}, goods };
     data.client = name + ' ' + phone; // строка, имя клиента + пробел + телефон клиента;
     data.order.address = [address.street, address.house, address.entrance, address.floor, address.flat].join(',');
-    JSON.stringify({ data })
+    JSON.stringify({ data });
+
+    return jsonData;
 }

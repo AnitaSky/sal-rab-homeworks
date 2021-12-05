@@ -34,12 +34,17 @@
 // }
 
 function sendRequest(name, phone, address, goods, sum) {
-    const data = { client: {name, phone}, order: { sum}, goods:[] };
-    data.client = name + ' ' + phone; // строка, имя клиента + пробел + телефон клиента;
-    data.order.address =
-        ул. ${address.street}, дом ${address.house}, ${address.entrance} подъезд, ${address.floor} этаж, кв ${address.flat};
-    for (let i = 0; i < goods.length; i++) { //изменила, чтоб было строго меньше длины массива в условии
-        data.goods.push({ 
+    const data = { 
+        client:  name + ' ' + phone,
+        order: {
+            sum,
+            address: ул. ${address.street}, дом ${address.house}, ${address.entrance} подъезд, ${address.floor} этаж, кв ${address.flat}
+        },
+        goods:[] 
+    };
+
+    for (let i = 0; i < goods.length; i++) {
+        data.goods.push({
             title: goods[i].title,
             count: goods[i].count
         });

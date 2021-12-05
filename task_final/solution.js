@@ -38,7 +38,7 @@ function sendRequest(name, phone, address, goods, sum) {
         client:  name + ' ' + phone,
         order: {
             sum,
-            address: ул. ${address.street}, дом ${address.house}, ${address.entrance} подъезд, ${address.floor} этаж, кв ${address.flat}
+            address: `ул. ${address.street}, дом ${address.house}, ${address.entrance} подъезд, ${address.floor} этаж, кв ${address.flat}`
         },
         goods:[] 
     };

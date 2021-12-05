@@ -33,37 +33,9 @@
 //    }
 // }
 
-function sendRequest(name, phone, address, goods, sum) {//тут ничего не меняла
-    //let data = {goods: [], order: {}}; так было в условии
-    let data = {client: {name, phone}, order: {address, sum}, goods: []};// объект data, аргументы только из функции, массив goods - пустой
-
-    //data.client = 'Иван'; так в условии
+function sendRequest(name, phone, address, goods, sum) {
+    const data = { client: {name, phone}, order: { sum}, goods };
     data.client = name + ' ' + phone; // строка, имя клиента + пробел + телефон клиента;
-
-    //data.order.address = address; так в условии
-    let order = {
-        //let address = {street: {}, house: {}, entrance: {}, floor: {}, flat: {}};
-        data.order.address = street + house + entrance + floor + flat;   //строка с адресом доставки, записанным человекопонятным языком (как в примере, надо исправить формулировку)
-    //data.order.sum = name + phone + address + goods + sum; так в условии
-        data.order.sum = sum; //стоимость заказа с учетом скидок и доставки
-    }
-
-    let goods = [];
-    let countOfGoods = goods.length;
-    //for (let i = 0; i <= countOfGoods; i += 1) { так в условии
-        //data.goods.push(goods[i].title); //title - название позиции/ так в условии
-        //}
-
-    for (let i = 0; i < countOfGoods; i += 1){ //изменила, чтоб было строго меньше длины массива в условии
-        goods[i] = {
-            data.goods.push(goods[i].title: {}); //title - название позиции
-            data.goods.push(goods[i].count: {}); // count - количество в заказе
-        }
-    }
-       
-    //let jsonData = JSON.stringify(data); так в условии
-
-    let jsonData = JSON.stringify({data});
-
-    return jsonData;
+    data.order.address = [address.street, address.house, address.entrance, address.floor, address.flat].join(',');
+    JSON.stringify({ data })
 }

@@ -44,6 +44,7 @@ function sendRequest(name, phone, address, goods, sum) {//тут ничего н
     let address = {street: {}, house: {}, entrance: {}, floor: {}, flat: {}};
     data.order.address = street + house + entrance + floor + flat;   //строка с адресом доставки, записанным человекопонятным языком (как в примере, надо исправить формулировку)
     //data.order.sum = name + phone + address + goods + sum; так в условии
+    let sum = {sum: {}};
     data.order.sum = sum; //стоимость заказа с учетом скидок и доставки
 
     let goods = [];
@@ -53,10 +54,12 @@ function sendRequest(name, phone, address, goods, sum) {//тут ничего н
         //}
 
     for (let i = 0; i < countOfGoods; i += 1){ //изменила, чтоб было строго меньше длины массива в условии
-        goods.push(goods[i].title, goods[i].count);
+        goods[i] = {
+            data.goods.push(goods[i].title); //title - название позиции
+            data.goods.push(goods[i].count); // count - количество в заказе
+        }
     }
        
-
     //let jsonData = JSON.stringify(data); так в условии
 
     let jsonData = JSON.stringify({data});

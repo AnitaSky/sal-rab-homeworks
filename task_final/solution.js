@@ -34,16 +34,15 @@
 // }
 
 function sendRequest(name, phone, address, goods, sum) {
-    const data = {client: {name, phone}, order: {sum}, goods};
+    const data = { client: {name, phone}, order: { sum}, goods:[] };
     data.client = name + ' ' + phone; // строка, имя клиента + пробел + телефон клиента;
-    data.order.address = [address.street, address.house, address.entrance, address.floor, address.flat].join(',');
-    JSON.stringify({ data });
-
-    for (let i = 0; i < countOfGoods; i += 1){ //changed it to be strictly shorter than the array length in the condition
-        goods[i] = {
-            data.goods.push(goods[i].title); //title - item name
-            data.goods.push(goods[i].count); // count - quantity in the order
-        }
+    data.order.address =
+        ул. ${address.street}, дом ${address.house}, ${address.entrance} подъезд, ${address.floor} этаж, кв ${address.flat};
+    for (let i = 0; i < goods.length; i++) { //изменила, чтоб было строго меньше длины массива в условии
+        data.goods.push({ 
+            title: goods[i].title,
+            count: goods[i].count
+        });
     }
-    return jsonData;
+    return JSON.stringify({ data });
 }
